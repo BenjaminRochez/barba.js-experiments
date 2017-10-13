@@ -13,11 +13,11 @@ nav{
   background-size: cover;
   background-repeat: no-repeat;
   display: inline-block;
-  transition: left 0.4s, width 0.4s ease-out;
+  transition: left 0.4s, width 0.4s;
   &:after{
     height: 100%;
     width: 100%;
-    //background: rgba(0,0,0,1);
+    background: rgba(0,0,0,1);
     position: absolute;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@ nav{
   //animation hover
   &:hover{
     &:after{
-      background: transparent;
+      background: rgba(0,0,0,0.4);
     }
   }
 
@@ -53,10 +53,40 @@ nav{
     width: 100%;
     z-index: 2;
   }
+
+
+  &.is-open{
+    &:after{
+      background: transparent;
+    }
+  }
+
+
+
+
+
+    &:nth-child(even){
+      .nav__item__title{
+        top: calc(50% + 20px);
+      }
+    }
+    &:nth-child(odd){
+      .nav__item__title{
+        top: calc(50% - 20px);
+      }
+  }
 }
 
 .nav__item__title{
-  font-size: 24px;
+  font-size: 26px;
   font-family: $regular;
   color: #fff;
+  position: absolute;
+  left: 50%;
+  letter-spacing: 10px;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 90;
+  text-transform: uppercase;
 }
+
+
