@@ -17,6 +17,15 @@ jQuery(document).ready(function($) {
 */
 
 
+
+var elClicked = '';
+
+
+Barba.Dispatcher.on('linkClicked', function(el){
+  elClicked = el;
+});
+
+
 var ExpandTransition = Barba.BaseTransition.extend({
   start: function() {
     Promise
@@ -26,9 +35,9 @@ var ExpandTransition = Barba.BaseTransition.extend({
 
   zoom: function() {
     var deferred = Barba.Utils.deferred();
+    console.log(elClicked);
     var tl = new TimelineMax();
-    tl.to('body', 1,{y: 100, onComplete: function() {
-      console.log("pute");
+    tl.to(elClicked, 1,{className: '+=is-open', onComplete: function() {
       deferred.resolve();
     }});
 
