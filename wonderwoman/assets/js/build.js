@@ -1,24 +1,7 @@
 jQuery(document).ready(function($) {
 
 
-
-/*$('.nav__item').click(function(e){
-    $this = $(this);
-   if($this.hasClass('is-open')){
-    $this.removeClass('is-open');
-    var zindex = $this.attr('data-zindex');
-
-    setTimeout(function(){ $this.css({'z-index': zindex}); }, 305);
-   }else{
-       $this.css({'z-index': 99});
-       $this.addClass('is-open');
-    }
-});
-*/
-
-
-
-var elClicked = '';
+  var elClicked = '';
 
 
 Barba.Dispatcher.on('linkClicked', function(el){
